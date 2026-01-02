@@ -35,11 +35,46 @@
                         </ul>
                     </div>
                 </div>
+                <div class="cover-filter">
+                    <label for="project-filter">Filter by category:</label>
+                    <select id="project-filter" onchange="filterProjects(this.value)">
+                        <option value="all">All</option>
+                        <option value="cartography">Cartography</option>
+                        <option value="film">Film</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
             </div>
         </section>
 
         <!-- Page 2: Project 1 -->
-        <section class="page">
+        <section class="page project-page" data-categories="cartography">
+            <div class="page-content project-section">
+                <div class="project-head">
+                    <h2>The Fuel Cycle Atlas</h2>
+                </div>
+                <div class="project-body">
+                    <div class="project-media">
+                        <div class="carousel carousel-landscape image-border" data-carousel="1">
+                            <div class="carousel-container" onclick="openCarouselImage(event)">
+                                <img src="media/20251215_012146.jpg" alt="Gass Hills Shadowbox Map" class="carousel-slide">
+                                <img src="media/20251215_012124.jpg" alt="Midnite Mine ShadowboxMap" class="carousel-slide">
+                                <img src="media/20251215_011924.jpg" alt="Atlas Cover" class="carousel-slide">
+                                <img src="media/20251215_012014.jpg" alt="Atlas Index Map" class="carousel-slide">
+                            </div>
+                            <button class="carousel-prev" onclick="changeSlide(event, -1)">‹</button>
+                            <button class="carousel-next" onclick="changeSlide(event, 1)">›</button>
+                            <div class="carousel-dots"></div>
+                        </div>
+                    </div>
+                    <p>The Fuel Cycle Atlas challenges the reader to grapple with tangibility in a subject inherently intangible, and focuses on bringing previously under-platformed perspectives into the broader conversation of the future of energy in America. As energy needs have skyrocketed, attention has returned to Nuclear as a clean, safe, and reliable way for America to power its future—but while flashy headlines advertise ventures in new advanced reactors, another sector of the industry is quietly growing to accommodate: the Fuel Cycle, or the mining, milling, fabrication, and storage of Uranium Fuel. This project critically explores this, not to hamper progress, but to participate in a practical and sober discussion about risks and tradeoffs given the lessons we can learn from past mistakes.</p>
+                    <p>To center the nuance of how uranium extraction tends to interact with indigenous territories, the first map in my "atlas" begins by intersecting the uranium geological resource areas with tribal territory, and serves as a spatial index by locating every site associated with the Uranium Fuel Cycle in America. The booklet features 3-dimensional, shadow-box style popout maps of two abandoned open pit uranium mines—Midnite Mine (on Spokane Territory in Washington) and pits in the Gas Hills Uranium Exploration District (adjacent to the Wind River Reservation in Wyoming). "Energy" is such an inherently intangible subject, that it can be nearly impossible to discuss in practical terms, so these maps display the scars in the Earth left by the uranium mining industry in a minimalist architectural papercraft style, arranged as 3d-popouts explicitly to require physical interaction. My hope is that someone who interacts with the Fuel Cycle Atlas leaves excited about the future, but aware of the costs.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Page 3: Project 2 -->
+        <section class="page project-page" data-categories="cartography">
             <div class="page-content project-section">
                 <div class="project-head">
                     <h2>Conventions and Evacuation zones</h2>
@@ -64,8 +99,8 @@
             </div>
         </section>
 
-        <!-- Page 3: Project 2 -->
-        <section class="page">
+        <!-- Page 4: Project 3 -->
+        <section class="page project-page" data-categories="cartography">
             <div class="page-content project-section">
                 <div class="project-head">
                     <h2>American Population Flow: a Cartogram Flipbook</h2>
@@ -84,15 +119,23 @@
             </div>
         </section>
 
-        <!-- Page 4: Project 3 -->
-        <section class="page">
+        <!-- Page 5: Project 4 -->
+        <section class="page project-page" data-categories="other,cartography">
             <div class="page-content project-section">
                 <div class="project-head">
                     <h2>RISK Butterfly</h2>
                 </div>
                 <div class="project-body">
                     <div class="project-media">
-                        <div class="image-placeholder letter-placeholder">Image Placeholder</div>
+                        <div class="carousel" data-carousel="3" style="max-width: 600px; border-radius: 8px; border: 8px solid #6b5e3d; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);">
+                            <div class="carousel-slides" onclick="openCarouselImage(event)">
+                                <img src="media/butterfly_risk_map.svg" alt="RISK Butterfly Map" class="carousel-slide" style="object-fit: contain; transform: rotate(90deg) scale(1.5); background-color: rgba(255, 255, 255, 0.35); cursor: pointer;">
+                                <img src="media/risk_cardboard.png" alt="RISK Butterfly Physical Model" class="carousel-slide" style="cursor: pointer;">
+                            </div>
+                            <button class="carousel-prev" onclick="changeSlide(event, -1)">‹</button>
+                            <button class="carousel-next" onclick="changeSlide(event, 1)">›</button>
+                            <div class="carousel-dots"></div>
+                        </div>
                     </div>
                     <p>This started as a hobby project: to make a version of the RISK board game using the Waterman Butterfly projection to lasercut into sheet steel. It has since turned into an ongoing personal experiment related to more tangible mediums for maps.</p>
                     <p>I created the original map basemap in ArcGIS Pro, reprojected it to the polyhedral butterfly using d3-geo, and created the hatch symbology by hand in Illustrator.</p>
@@ -102,32 +145,40 @@
             </div>
         </section>
 
-        <!-- Page 5: Project 4 -->
-        <section class="page">
+        <!-- Page 6: Project 5 -->
+        <section class="page project-page" data-categories="film">
             <div class="page-content project-section">
                 <div class="project-head">
                     <h2>Wells Fargo Home Mortgage</h2>
                 </div>
                 <div class="project-body">
                     <div class="project-media">
-                        <div class="image-placeholder letter-placeholder">Image Placeholder</div>
+                        <div class="carousel carousel-landscape image-border" data-carousel="2">
+                            <div class="carousel-container">
+                                <iframe src="https://www.youtube.com/embed/Bsdcwcpw8F4?si=3fiQKpNoLrM3nvH8" class="carousel-slide video-embed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                                <iframe src="https://www.youtube.com/embed/1aZcG4w9d_o?si=Xxwyds_hUOi6q0II" class="carousel-slide video-embed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </div>
+                            <button class="carousel-prev" onclick="changeSlide(event, -1)">‹</button>
+                            <button class="carousel-next" onclick="changeSlide(event, 1)">›</button>
+                            <div class="carousel-dots"></div>
+                        </div>
                     </div>
-                    <p>As an assistant editor on a small post-production team for a campaign of television and social media commercials promoting Wells Fargo’s Home Mortgage products, I was primarily responsible for technical tasks related media organization. However, I was a given a larger creative role on the 30 second TV spot linked below by getting tasked with cutting the assembly edit.</p>
+                    <p>As an assistant editor on a small post-production team for a campaign of television and social media commercials promoting Wells Fargo's Home Mortgage products, I was primarily responsible for technical tasks related media organization. However, I was a given a larger creative role on the 30 second TV spot linked below by getting tasked with cutting the assembly edit.</p>
                     <p>The goal of the campaign was to highlight the wide diversity of the company’s target demographic: a home mortgage for everyone.</p>
                     <p>I injected my signature style, using an upbeat pace to create dynamism and continuous engagement.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Page 6: Project 5 -->
-        <section class="page">
+        <!-- Page 7: Project 6 -->
+        <section class="page project-page" data-categories="film">
             <div class="page-content project-section">
                 <div class="project-head">
                     <h2>Ends and Means</h2>
                 </div>
                 <div class="project-body">
                     <div class="project-media">
-                        <div class="image-placeholder letter-placeholder">Image Placeholder</div>
+                        <img src="media/ends_and_means_poster.png" alt="Ends and Means Movie Poster" class="image-border">
                     </div>
                     <p>As the co-producer and unit production manager for award winning Santa Monica College Film Program capstone project Ends and Means, I oversaw logistics to keep the project flowing on schedule and under budget. My most important role here was leading the location scouting process, and liaising with property owners and permitting agencies.</p>
                     <p>The film has not yet been publicly released, but you can track it progress on IMDB!</p>
@@ -136,7 +187,7 @@
             </div>
         </section>
 
-        <!-- Page 7: Contact -->
+        <!-- Page 8: Contact -->
         <section class="page">
             <div class="page-content project-section">
                 <div class="project-head">
@@ -152,6 +203,24 @@
     </div>
 
     <script>
+        // Filter function - define early so it's available for onchange
+        function filterProjects(category) {
+            console.log('Filter called with category:', category);
+            const projectPages = document.querySelectorAll('.project-page');
+            console.log('Found project pages:', projectPages.length);
+            projectPages.forEach(page => {
+                const pageCategories = page.getAttribute('data-categories').split(',').map(c => c.trim());
+                console.log('Page categories:', pageCategories);
+                if (category === 'all' || pageCategories.includes(category)) {
+                    page.classList.remove('hidden');
+                    console.log('Showing:', pageCategories);
+                } else {
+                    page.classList.add('hidden');
+                    console.log('Hiding:', pageCategories);
+                }
+            });
+        }
+
         class CarouselManager {
             constructor() {
                 this.carousels = {};
