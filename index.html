@@ -1,20 +1,304 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
-    <style>
-      html, body {
-        margin: 0;
-        height: 100%;
-      }
-      embed {
-        width: 100%;
-        height: 100%;
-      }
-    </style>
-  </head>
-  <body>
-    <embed src="portfolio.pdf" type="application/pdf">
-  </body>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="background">
+        <img src="portfolio background.png" alt="Background">
+    </div>
+    
+    <div class="content">
+        <!-- Page 1: Cover/Title -->
+        <section class="page">
+            <div class="page-content cover-page">
+                <div class="cover-headings">
+                    <h2>Hi, my name is:</h2>
+                    <h1>Benjamin Szeghy</h1>
+                </div>
+                <div class="cover-body">
+                    <div class="cover-headshot">
+                        <img class="headshot-img image-border" src="media/headshot.png" alt="Portrait of Benjamin Szeghy">
+                    </div>
+                    <div class="cover-text">
+                        <ul>
+                            <li>I make thoughtful, informative, and innovative maps based on rigorous data techniques.</li>
+                            <li>I am passionate about pushing the boundaries of mapping</li>
+                            <li>I edit videos and compose motion graphics</li>
+                            <li>I am a trained filmmaker, with experience doing production management and directing for indie sets</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="cover-filter">
+                    <label for="project-filter">Filter by category:</label>
+                    <select id="project-filter" onchange="filterProjects(this.value)">
+                        <option value="all">All</option>
+                        <option value="cartography">Cartography</option>
+                        <option value="film">Film</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+
+        <!-- Page 2: Project 1 -->
+        <section class="page project-page" data-categories="cartography">
+            <div class="page-content project-section">
+                <div class="project-head">
+                    <h2>The Fuel Cycle Atlas</h2>
+                </div>
+                <div class="project-body">
+                    <div class="project-media">
+                        <div class="carousel carousel-landscape image-border" data-carousel="1">
+                            <div class="carousel-container" onclick="openCarouselImage(event)">
+                                <img src="media/20251215_012146.jpg" alt="Gass Hills Shadowbox Map" class="carousel-slide">
+                                <img src="media/20251215_012124.jpg" alt="Midnite Mine ShadowboxMap" class="carousel-slide">
+                                <img src="media/20251215_011924.jpg" alt="Atlas Cover" class="carousel-slide">
+                                <img src="media/20251215_012014.jpg" alt="Atlas Index Map" class="carousel-slide">
+                            </div>
+                            <button class="carousel-prev" onclick="changeSlide(event, -1)">‹</button>
+                            <button class="carousel-next" onclick="changeSlide(event, 1)">›</button>
+                            <div class="carousel-dots"></div>
+                        </div>
+                    </div>
+                    <p>The Fuel Cycle Atlas challenges the reader to grapple with tangibility in a subject inherently intangible, and focuses on bringing previously under-platformed perspectives into the broader conversation of the future of energy in America. As energy needs have skyrocketed, attention has returned to Nuclear as a clean, safe, and reliable way for America to power its future—but while flashy headlines advertise ventures in new advanced reactors, another sector of the industry is quietly growing to accommodate: the Fuel Cycle, or the mining, milling, fabrication, and storage of Uranium Fuel. This project critically explores this, not to hamper progress, but to participate in a practical and sober discussion about risks and tradeoffs given the lessons we can learn from past mistakes.</p>
+                    <p>To center the nuance of how uranium extraction tends to interact with indigenous territories, the first map in my "atlas" begins by intersecting the uranium geological resource areas with tribal territory, and serves as a spatial index by locating every site associated with the Uranium Fuel Cycle in America. The booklet features 3-dimensional, shadow-box style popout maps of two abandoned open pit uranium mines—Midnite Mine (on Spokane Territory in Washington) and pits in the Gas Hills Uranium Exploration District (adjacent to the Wind River Reservation in Wyoming). "Energy" is such an inherently intangible subject, that it can be nearly impossible to discuss in practical terms, so these maps display the scars in the Earth left by the uranium mining industry in a minimalist architectural papercraft style, arranged as 3d-popouts explicitly to require physical interaction. My hope is that someone who interacts with the Fuel Cycle Atlas leaves excited about the future, but aware of the costs.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Page 3: Project 2 -->
+        <section class="page project-page" data-categories="cartography">
+            <div class="page-content project-section">
+                <div class="project-head">
+                    <h2>Conventions and Evacuation zones</h2>
+                </div>
+                <div class="project-body">
+                    <div class="project-media">
+                        <div class="carousel image-border" data-carousel="0">
+                            <div class="carousel-container" onclick="openCarouselImage(event)">
+                                <img src="media/conventions_combined_4.png" alt="Nuclear conventions and liability map" class="carousel-slide">
+                                <img src="media/population_combined_5.png" alt="Nuclear population density and evacuation zones" class="carousel-slide">
+                            </div>
+                            <button class="carousel-prev" onclick="changeSlide(event, -1)">‹</button>
+                            <button class="carousel-next" onclick="changeSlide(event, 1)">›</button>
+                            <div class="carousel-dots"></div>
+                        </div>
+                    </div>
+                    <p>Nuclear energy development has been a longtime passion of mine, and I was overjoyed to get the opportunity to work on a project with the Department of Nuclear Engineering SALT lab.</p>
+                    <p>I served as a co-author and primary geospatial scientist on the manuscript The 71,000-Kilometer Gap: How Nuclear Liability Shapes Global Nuclear Energy and Its Supply Chain Development, currently under consideration by Nature Communications.</p>
+                    <p>This map aims to untangle the complexities of the overlapping international nuclear liability conventions using a mix of solid and hashed symbologies. It also depicts evacuation zones and symbolizes countries that are involved in nuclear activities without participating in a liability convention.</p>
+                    <p>This is most significant cartographic challenge I have tackled: the convoluted and under-compatible nature of these conventions perplex even experts in nuclear law. I think my struggles with putting this symbology together are by themselves a perfect metaphor for the thesis this paper attempts to prove.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Page 4: Project 3 -->
+        <section class="page project-page" data-categories="cartography">
+            <div class="page-content project-section">
+                <div class="project-head">
+                    <h2>American Population Flow: a Cartogram Flipbook</h2>
+                </div>
+                <div class="project-body">
+                    <div class="project-media">
+                        <a href="media/flipbook_map.pdf" target="_blank" rel="noopener">
+                            <img src="media/flipbookpage.jpg" alt="American Population Flow Cartogram Flipbook" class="image-border">
+                        </a>
+                    </div>
+                    <p>I made this for a class project, and envisioned it as both an exploration of novel methods of cartography, as well as an opportunity to try out the new Generate Contiguous Cartogram tool in ArcGIS Pro.</p>
+                    <p>I generated population cartograms for every census year in US history programatically using model builder, then exported them to Illustrator for annotation and layout.</p>
+                    <p>It is 27 frames total, including a front and back cover, and prints with assembly instructions for cutting it out and stapling to turn it into a working flipbook.</p>
+                    <p>It challenges the classic US census population mean point map by representing spatial population changes over time using an animation rather than a traditional time series symbology. It allows the viewer to perceive the interactions between micro- and macro- scale population motion.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Page 5: Project 4 -->
+        <section class="page project-page" data-categories="other,cartography">
+            <div class="page-content project-section">
+                <div class="project-head">
+                    <h2>RISK Butterfly</h2>
+                </div>
+                <div class="project-body">
+                    <div class="project-media">
+                        <div class="carousel" data-carousel="3" style="max-width: 600px; border-radius: 8px; border: 8px solid #6b5e3d; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);">
+                            <div class="carousel-slides" onclick="openCarouselImage(event)">
+                                <img src="media/butterfly_risk_map.svg" alt="RISK Butterfly Map" class="carousel-slide" style="object-fit: contain; transform: rotate(90deg) scale(1.5); background-color: rgba(255, 255, 255, 0.35); cursor: pointer;">
+                                <img src="media/risk_cardboard.png" alt="RISK Butterfly Physical Model" class="carousel-slide" style="cursor: pointer;">
+                            </div>
+                            <button class="carousel-prev" onclick="changeSlide(event, -1)">‹</button>
+                            <button class="carousel-next" onclick="changeSlide(event, 1)">›</button>
+                            <div class="carousel-dots"></div>
+                        </div>
+                    </div>
+                    <p>This started as a hobby project: to make a version of the RISK board game using the Waterman Butterfly projection to lasercut into sheet steel. It has since turned into an ongoing personal experiment related to more tangible mediums for maps.</p>
+                    <p>I created the original map basemap in ArcGIS Pro, reprojected it to the polyhedral butterfly using d3-geo, and created the hatch symbology by hand in Illustrator.</p>
+                    <p>The main challenge of this project was to make a hatch fill symbology that was distinguishable in monochrome, as fiber laser cutters cannot vary rastering intensity for metal.</p>
+                    <p>This is an ongoing project, and the final form will use magnetic game pieces to allow play both flat or folded.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Page 6: Project 5 -->
+        <section class="page project-page" data-categories="film">
+            <div class="page-content project-section">
+                <div class="project-head">
+                    <h2>Wells Fargo Home Mortgage</h2>
+                </div>
+                <div class="project-body">
+                    <div class="project-media">
+                        <div class="carousel carousel-landscape image-border" data-carousel="2">
+                            <div class="carousel-container">
+                                <iframe src="https://www.youtube.com/embed/Bsdcwcpw8F4?si=3fiQKpNoLrM3nvH8" class="carousel-slide video-embed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                                <iframe src="https://www.youtube.com/embed/1aZcG4w9d_o?si=Xxwyds_hUOi6q0II" class="carousel-slide video-embed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </div>
+                            <button class="carousel-prev" onclick="changeSlide(event, -1)">‹</button>
+                            <button class="carousel-next" onclick="changeSlide(event, 1)">›</button>
+                            <div class="carousel-dots"></div>
+                        </div>
+                    </div>
+                    <p>As an assistant editor on a small post-production team for a campaign of television and social media commercials promoting Wells Fargo's Home Mortgage products, I was primarily responsible for technical tasks related media organization. However, I was a given a larger creative role on the 30 second TV spot linked below by getting tasked with cutting the assembly edit.</p>
+                    <p>The goal of the campaign was to highlight the wide diversity of the company’s target demographic: a home mortgage for everyone.</p>
+                    <p>I injected my signature style, using an upbeat pace to create dynamism and continuous engagement.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Page 7: Project 6 -->
+        <section class="page project-page" data-categories="film">
+            <div class="page-content project-section">
+                <div class="project-head">
+                    <h2>Ends and Means</h2>
+                </div>
+                <div class="project-body">
+                    <div class="project-media">
+                        <img src="media/ends_and_means_poster.png" alt="Ends and Means Movie Poster" class="image-border">
+                    </div>
+                    <p>As the co-producer and unit production manager for award winning Santa Monica College Film Program capstone project Ends and Means, I oversaw logistics to keep the project flowing on schedule and under budget. My most important role here was leading the location scouting process, and liaising with property owners and permitting agencies.</p>
+                    <p>The film has not yet been publicly released, but you can track it progress on IMDB!</p>
+                    <p><a class="project-link" href="https://www.imdb.com/title/tt35952261/" target="_blank" rel="noopener">View Ends and Means on IMDB</a></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Page 8: Contact -->
+        <section class="page">
+            <div class="page-content project-section">
+                <div class="project-head">
+                    <h2>Contact</h2>
+                </div>
+                <div class="contact-content">
+                    <p><a href="mailto:benny@bennyszeghy.com" class="contact-link">benny@bennyszeghy.com</a></p>
+                    <p><a href="https://www.linkedin.com/in/benny-szeghy/" target="_blank" rel="noopener" class="contact-link">LinkedIn</a></p>
+                    <p><a href="portfolio.pdf" download class="contact-link">Download as PDF</a></p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Filter function - define early so it's available for onchange
+        function filterProjects(category) {
+            console.log('Filter called with category:', category);
+            const projectPages = document.querySelectorAll('.project-page');
+            console.log('Found project pages:', projectPages.length);
+            projectPages.forEach(page => {
+                const pageCategories = page.getAttribute('data-categories').split(',').map(c => c.trim());
+                console.log('Page categories:', pageCategories);
+                if (category === 'all' || pageCategories.includes(category)) {
+                    page.classList.remove('hidden');
+                    console.log('Showing:', pageCategories);
+                } else {
+                    page.classList.add('hidden');
+                    console.log('Hiding:', pageCategories);
+                }
+            });
+        }
+
+        class CarouselManager {
+            constructor() {
+                this.carousels = {};
+                this.initCarousels();
+            }
+
+            initCarousels() {
+                document.querySelectorAll('[data-carousel]').forEach(el => {
+                    const id = el.getAttribute('data-carousel');
+                    const slides = el.querySelectorAll('.carousel-slide');
+                    const dotsContainer = el.querySelector('.carousel-dots');
+                    
+                    // Generate dots
+                    slides.forEach((_, idx) => {
+                        const dot = document.createElement('span');
+                        dot.className = 'dot';
+                        dot.onclick = () => this.goToSlide(id, idx + 1);
+                        dotsContainer.appendChild(dot);
+                    });
+                    
+                    // Store carousel state
+                    this.carousels[id] = {
+                        element: el,
+                        currentSlide: 1,
+                        slides: slides,
+                        dots: el.querySelectorAll('.dot')
+                    };
+                    
+                    this.updateCarousel(id);
+                });
+            }
+
+            changeSlide(carouselId, direction) {
+                const carousel = this.carousels[carouselId];
+                let newSlide = carousel.currentSlide + direction;
+                if (newSlide > carousel.slides.length) newSlide = 1;
+                if (newSlide < 1) newSlide = carousel.slides.length;
+                this.goToSlide(carouselId, newSlide);
+            }
+
+            goToSlide(carouselId, slideNum) {
+                const carousel = this.carousels[carouselId];
+                carousel.currentSlide = slideNum;
+                this.updateCarousel(carouselId);
+            }
+
+            updateCarousel(carouselId) {
+                const carousel = this.carousels[carouselId];
+                carousel.slides.forEach((slide, idx) => {
+                    slide.classList.toggle('active', idx === carousel.currentSlide - 1);
+                });
+                carousel.dots.forEach((dot, idx) => {
+                    dot.classList.toggle('active', idx === carousel.currentSlide - 1);
+                });
+            }
+
+            openCurrentImage(event) {
+                const carousel = event.target.closest('[data-carousel]');
+                if (!carousel) return;
+                const carouselId = carousel.getAttribute('data-carousel');
+                const currentSlide = this.carousels[carouselId].slides[this.carousels[carouselId].currentSlide - 1];
+                window.open(currentSlide.src, '_blank');
+            }
+        }
+
+        const carouselMgr = new CarouselManager();
+
+        function changeSlide(event, direction) {
+            const carousel = event.target.closest('[data-carousel]');
+            const carouselId = carousel.getAttribute('data-carousel');
+            carouselMgr.changeSlide(carouselId, direction);
+        }
+
+        function openCarouselImage(event) {
+            if (event.target.tagName === 'IMG' || event.target.classList.contains('carousel-container')) {
+                carouselMgr.openCurrentImage(event);
+            }
+        }
+    </script>
+</body>
 </html>
