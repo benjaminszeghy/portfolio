@@ -6,6 +6,7 @@
 }
 
 body, html {
+    scroll-behavior: smooth;
     width: 100%;
     height: 100%;
     overflow-x: hidden;
@@ -233,9 +234,9 @@ body::after {
 
 .project-media {
     float: right;
-    width: 40%;
-    max-width: 500px;
-    min-width: 320px;
+    width: 55%;
+    max-width: 1000px;
+    min-width: 640px;
     margin-left: 32px;
     margin-bottom: 12px;
 }
@@ -330,6 +331,7 @@ body::after {
     position: relative;
     width: 100%;
     aspect-ratio: 8.5 / 11;
+    max-height: 65vh;
     height: auto;
     overflow: hidden;
     display: flex;
@@ -342,7 +344,7 @@ body::after {
 }
 
 .carousel-landscape.image-border {
-    max-width: 980px;
+    max-width: 1800px;
 }
 
 .carousel::after {
