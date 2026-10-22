@@ -254,7 +254,32 @@
             </div>
         </section>
 
-        <!-- Page 11: Contact -->
+        <!-- Page 11: Project 9 -->
+        <!-- https://www.bennyszeghy.com/#jupytergis -->
+        <section class="page project-page" id="jupytergis" data-categories="open-source">
+            <div class="page-content project-section">
+                <div class="project-head">
+                    <h2>JupyterGIS</h2>
+                </div>
+                <div class="project-body">
+                    <div class="project-media">
+                        <div class="carousel carousel-landscape image-border" data-carousel="4">
+                            <div class="carousel-container" onclick="openCarouselImage(event)">
+                                <img src="media/jupytergis.png" alt="JupyterGIS application with notebook and map views" class="carousel-slide" data-href="https://github.com/geojupyter/jupytergis">
+                                <img src="media/proj_codes.png" alt="proj-codes GitHub repository" class="carousel-slide" data-href="https://github.com/geojupyter/proj-codes">
+                            </div>
+                            <button class="carousel-prev" onclick="changeSlide(event, -1)">‹</button>
+                            <button class="carousel-next" onclick="changeSlide(event, 1)">›</button>
+                            <div class="carousel-dots"></div>
+                        </div>
+                    </div>
+                    <p>JupyterGIS is a collaborative GIS editor in Jupyter, and the flagship project of GeoJupyter. I contribute features and fixes, including a Google Maps style GPS location indicator, a reset rotation button, and a UI for changing the map projection.</p>
+                    <p>To support projection switching, I also built and maintain proj-codes, a JavaScript package of CRS authority codes and proj strings.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Page 12: Contact -->
         <!-- https://www.bennyszeghy.com/#contact -->
         <section class="page" id="contact">
             <div class="page-content project-section">
@@ -350,7 +375,7 @@
                 if (!carousel) return;
                 const carouselId = carousel.getAttribute('data-carousel');
                 const currentSlide = this.carousels[carouselId].slides[this.carousels[carouselId].currentSlide - 1];
-                window.open(currentSlide.src, '_blank');
+                window.open(currentSlide.dataset.href || currentSlide.src, '_blank');
             }
         }
 
